@@ -29,7 +29,6 @@ public class Post extends Timestamped{
     @JoinColumn(name = "user_id")
     private User user;
 
-    // @Entity 어노테이션 붙은 클래스는 기본생성자가 필수!!
     public Post(PostRequestDto requestDto, String username) {
         this.title = requestDto.getTitle();
         this.contents = requestDto.getContent();
@@ -41,7 +40,6 @@ public class Post extends Timestamped{
         this.contents = requestDto.getContent();
     }
 
-    // user를 받아서 user에 post를 세팅하기
     public void setUser(User user) {
         this.user = user;
         user.getPostList().add(this);
